@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMuebleRequest;
 use App\Http\Requests\UpdateMuebleRequest;
 use App\Models\Mueble;
+use Livewire\Volt\Actions\ReturnRules;
 
 class MuebleController extends Controller
 {
@@ -13,7 +14,7 @@ class MuebleController extends Controller
      */
     public function index()
     {
-        //
+        return view('muebles.index', ['muebles'=>Mueble::all()]);
     }
 
     /**
@@ -21,7 +22,7 @@ class MuebleController extends Controller
      */
     public function create()
     {
-        //
+        return view('muebles.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class MuebleController extends Controller
      */
     public function show(Mueble $mueble)
     {
-        //
+        return view('muebles.show', ['mueble' => $mueble]);
     }
 
     /**
@@ -45,8 +46,12 @@ class MuebleController extends Controller
      */
     public function edit(Mueble $mueble)
     {
-        //
+
+        $muebleBusqueda = Mueble::with('fabricable')->find($mueble->id);
+
+        return view('muebles.edit', ['mueble' =>$muebleBusqueda]);
     }
+
 
     /**
      * Update the specified resource in storage.
