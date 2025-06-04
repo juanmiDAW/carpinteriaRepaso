@@ -66,6 +66,8 @@ class MuebleController extends Controller
      */
     public function destroy(Mueble $mueble)
     {
-        //
+        $mueble->delete();
+
+        return redirect()->route('muebles.index');
     }
 }

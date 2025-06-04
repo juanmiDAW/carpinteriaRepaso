@@ -4,7 +4,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Muebles
+            Pedidos
         </h2>
     </x-slot>
     <div class="py-6">
@@ -28,44 +28,34 @@
                                         </th>
                                 </thead>
                                 <tbody>
-                                    @foreach ($muebles as $mueble)
+                                    @foreach ($pedidos as $pedido)
                                         <tr
                                             class="bg-white border-b hover:bg-gray-50">
                                             <th scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                {{ $mueble->id }}
+                                                {{ $pedido->id }}
                                             </th>
                                             <td class="px-6 py-4">
-                                                <a href="{{ route('muebles.show', $mueble) }}"
-                                                    class="font-medium text-blue-600 hover:underline">
-                                                    {{ $mueble->denominacion }}
-                                                </a>
+                                               
+                                                    {{ $pedido->denominacion }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                    {{ $mueble->precio }}
+                                                    {{ $pedido->precio }}
                                             </td>
-                                            <td class="flex">
-                                                <a href="{{ route('muebles.edit', $mueble) }}"
+                                            {{-- <td class="flex">
+                                                <a href="{{ route('muebles.edit', $pedido) }}"
                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
-                                                    Editar mueble
-                                                </a>
+                                                    Editar pedido
+                                                </a> --}}
 
-                                                <form action="{{ route('muebles.destroy', $mueble) }}" method="post">
+                                                {{-- <form action="{{ route('muebles.destroy', $pedido) }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="submit"
                                                         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
-                                                        Eliminar mueble
+                                                        Eliminar pedido
                                                     </button>
-                                                </form>
-
-                                                <form action="{{ route('pedidos.store', $mueble) }}" method="post">
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
-                                                        Añadir a pedido
-                                                    </button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                           
                                             {{-- <td class="px-6 py-4">

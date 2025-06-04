@@ -21,6 +21,16 @@
                     <x-input-error :messages="$errors->get('denominacion')" class="mt-2" />
                 </div>
 
+                @if (auth()->check() && auth()->user()->name == 'admin' )
+                <div class="mb-5">
+                    <label for="tipo">Tipo de mueble</label>
+                    <select name="tipo" id="">
+                        <option value="App\Models\Fabricado" @selected($mueble->fabricable_type === 'App\Models\Fabricado')>Fabricado</option>
+                        <option value="App\Models\Prefabricado" @selected($mueble->fabricable_type === 'App\Models\Prefabricado')>Prefabricado</option>
+                    </select>
+                </div>
+                @endif
+
 
                 @if ($mueble->fabricable_type == 'App\Models\Fabricado')
                 <div class="mb-5">

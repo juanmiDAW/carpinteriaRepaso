@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePedidoRequest;
 use App\Http\Requests\UpdatePedidoRequest;
+use App\Models\Mueble;
 use App\Models\Pedido;
+
+use function PHPUnit\Framework\returnSelf;
 
 class PedidoController extends Controller
 {
@@ -13,7 +16,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        return view('pedidos.index', ['pedidos' => Pedido::with('mueble')->get()]);
     }
 
     /**
@@ -29,7 +32,15 @@ class PedidoController extends Controller
      */
     public function store(StorePedidoRequest $request)
     {
-        //
+
+        dd($request);
+        $request->validated();
+        Pedido::create([
+            'cantidad' => 1,
+            'user_id' => auth()->user()->id,
+            'mueble_id' => $request->mueble_id,
+        ]);
+
     }
 
     /**
