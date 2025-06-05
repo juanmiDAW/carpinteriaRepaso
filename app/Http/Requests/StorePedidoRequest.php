@@ -22,8 +22,7 @@ class StorePedidoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cantidad' => 'required | integer',
-            'user_id' => 'required | integer'
+            'mueble_id' => 'required|integer'
         ];
     }
 }
