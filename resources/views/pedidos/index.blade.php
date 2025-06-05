@@ -37,10 +37,10 @@
                                             </th>
                                             <td class="px-6 py-4">
                                                
-                                                    {{ $pedido->denominacion }}
+                                                    {{ $pedido->mueble->denominacion }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                    {{ $pedido->precio }}
+                                                    {{ $pedido->mueble->precio }}
                                             </td>
                                             {{-- <td class="flex">
                                                 <a href="{{ route('muebles.edit', $pedido) }}"
