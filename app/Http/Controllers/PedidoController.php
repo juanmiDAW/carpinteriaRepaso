@@ -16,7 +16,9 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        return view('pedidos.index', ['pedidos' => Pedido::with('mueble')->get()]);
+
+        $pedidos = Pedido::with('mueble')->where('user_id', auth()->user()->id)->get();
+        return view('pedidos.index', ['pedidos' => $pedidos]);
     }
 
     /**
